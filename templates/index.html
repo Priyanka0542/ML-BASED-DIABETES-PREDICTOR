@@ -1,29 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
     <title>Diabetes Prediction</title>
+
     <link rel="stylesheet" href="/static/style.css">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
+
 <body>
-<div class="container">
-    <h2>Diabetes Prediction System</h2>
 
-    <form method="POST">
-        <input name="pregnancies" placeholder="Pregnancies" required>
-        <input name="glucose" placeholder="Glucose Level" required>
-        <input name="bloodpressure" placeholder="Blood Pressure" required>
-        <input name="skinthickness" placeholder="Skin Thickness" required>
-        <input name="insulin" placeholder="Insulin" required>
-        <input name="bmi" placeholder="BMI" required>
-        <input name="dpf" placeholder="Diabetes Pedigree Function" required>
-        <input name="age" placeholder="Age" required>
+    <div class="bubbles">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
 
-        <button type="submit">Predict</button>
-    </form>
+    <div class="container">
 
-    {% if prediction %}
-        <h3>Result: {{ prediction }}</h3>
-    {% endif %}
-</div>
+        <h2><i class="fa-solid fa-heart-pulse"></i> Diabetes Prediction</h2>
+        <p class="subtitle">AI Powered Health Prediction</p>
+
+        <form method="POST">
+
+            <div class="input-box">
+                <i class="fa-solid fa-baby"></i>
+                <input type="number" name="pregnancies" placeholder="Pregnancies" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-candy-cane"></i>
+                <input type="number" name="glucose" placeholder="Glucose Level" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-heart"></i>
+                <input type="number" name="bloodpressure" placeholder="Blood Pressure" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-ruler"></i>
+                <input type="number" name="skinthickness" placeholder="Skin Thickness" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-syringe"></i>
+                <input type="number" name="insulin" placeholder="Insulin" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-weight-scale"></i>
+                <input type="number" step="any" name="bmi" placeholder="BMI" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-dna"></i>
+                <input type="number" step="any" name="dpf" placeholder="Diabetes Pedigree Function" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="number" name="age" placeholder="Age" required>
+            </div>
+
+            <button id="predictBtn" type="submit">
+                <i class="fa-solid fa-brain"></i> Predict
+            </button>
+
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <i class="fa-solid fa-stethoscope"></i>
+            Result: {{ prediction }}
+        </div>
+        {% endif %}
+
+    </div>
+
+    <script>
+        document.getElementById("predictBtn").onclick = function () {
+            this.innerHTML = "Predicting...";
+        }
+    </script>
+
 </body>
+
 </html>

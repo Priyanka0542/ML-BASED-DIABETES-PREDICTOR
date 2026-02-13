@@ -1,19 +1,106 @@
-body {
-    font-family: Arial;
-    background: #0f2027;
-    color: white;
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#e3f2fd,#f3e5f5);
+overflow-y:auto;
+min-height:100vh;
 }
 
-.container {
-    width: 350px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #203a43;
-    border-radius: 10px;
+/* container */
+.container{
+width:380px;
+margin:50px auto;
+padding:25px;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(12px);
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+position:relative;
+z-index:1;
 }
 
-input, button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+.subtitle{
+color:#555;
+margin-bottom:15px;
+}
+
+/* input with icons */
+.input-box{
+position:relative;
+margin-bottom:12px;
+}
+
+.input-box i{
+position:absolute;
+left:10px;
+top:50%;
+transform:translateY(-50%);
+color:#666;
+}
+
+input{
+width:100%;
+padding:12px 12px 12px 35px;
+border-radius:8px;
+border:1px solid #ccc;
+box-sizing:border-box;
+transition:0.3s;
+}
+
+input:focus{
+outline:none;
+border-color:#42a5f5;
+transform:scale(1.02);
+}
+
+/* button */
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:linear-gradient(90deg,#42a5f5,#ab47bc);
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* result */
+.result{
+margin-top:15px;
+padding:12px;
+border-radius:8px;
+background:#e1f5fe;
+color:#01579b;
+font-weight:bold;
+}
+
+/* animated bubbles */
+.bubbles span{
+position:fixed;
+bottom:-120px;
+width:40px;
+height:40px;
+background:rgba(255,255,255,0.4);
+border-radius:50%;
+animation:rise 20s infinite;
+}
+
+.bubbles span:nth-child(1){left:10%;animation-duration:18s;}
+.bubbles span:nth-child(2){left:20%;width:70px;height:70px;animation-duration:22s;}
+.bubbles span:nth-child(3){left:35%;animation-duration:17s;}
+.bubbles span:nth-child(4){left:55%;width:90px;height:90px;animation-duration:25s;}
+.bubbles span:nth-child(5){left:75%;animation-duration:19s;}
+.bubbles span:nth-child(6){left:90%;width:60px;height:60px;animation-duration:23s;}
+
+@keyframes rise{
+0%{transform:translateY(0) rotate(0deg);opacity:0;}
+50%{opacity:0.6;}
+100%{transform:translateY(-1000px) rotate(360deg);opacity:0;}
 }
